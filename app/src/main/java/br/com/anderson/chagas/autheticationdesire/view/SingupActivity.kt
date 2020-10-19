@@ -1,8 +1,6 @@
 package br.com.anderson.chagas.autheticationdesire.view
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -21,8 +19,6 @@ class SingupActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_singup)
         title = "Cadastro"
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowHomeEnabled(true)
 
         viewModel.loginliveData.observe(this, Observer {
             Toast.makeText(this, it, Toast.LENGTH_LONG).show()
@@ -32,20 +28,12 @@ class SingupActivity : AppCompatActivity() {
     }
 
     private fun btnClickListener() {
-        bt_login.setOnClickListener {
-            val name = txt_nome.editText?.text.toString()
+        bt_signup.setOnClickListener {
             val email = txt_email.editText?.text.toString()
             val password  =  txt_senha.editText?.text.toString()
-            val user = User(name, email, password)
+            val user = User(email, password)
             viewModel.singup(user)
         }
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId === android.R.id.home) {
-            finish()
-        }
-        return super.onOptionsItemSelected(item)
     }
 
     private fun setError(
@@ -59,8 +47,4 @@ class SingupActivity : AppCompatActivity() {
         }
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-        true
-    }
 }

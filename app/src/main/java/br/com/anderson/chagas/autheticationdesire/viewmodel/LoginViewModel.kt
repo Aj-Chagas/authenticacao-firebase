@@ -12,7 +12,7 @@ class LoginViewModel(
     val loginliveData =  MutableLiveData<String>()
 
     fun singup(user: User) {
-        firebaseService.register(user.email, user.password, user.name) { result: Boolean, message: String ->
+        firebaseService.register(user.email, user.password, "") { result: Boolean, message: String ->
             if (result) {
                 loginliveData.postValue("cadastro efetuado com sucesso")
             } else {
