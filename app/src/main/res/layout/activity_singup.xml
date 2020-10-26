@@ -41,7 +41,8 @@
         app:layout_constraintBottom_toTopOf="@id/txt_email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.37" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txt_email"
@@ -56,6 +57,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:lines="1"
             android:hint="email" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -67,14 +70,27 @@
         app:layout_constraintEnd_toEndOf="@+id/txt_email"
         app:layout_constraintStart_toStartOf="@+id/txt_email"
         app:layout_constraintTop_toBottomOf="@+id/txt_email"
+        android:layout_marginBottom="16dp"
         app:layout_constraintVertical_bias="0.0"
         app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="numberPassword"
+            android:lines="1"
             android:hint="senha" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <ProgressBar
+        android:id="@+id/signin_progress_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintTop_toTopOf="@+id/bt_signin"
+        app:layout_constraintStart_toStartOf="@id/bt_signin"
+        app:layout_constraintBottom_toBottomOf="@+id/bt_signin"
+        app:layout_constraintEnd_toEndOf="@+id/bt_signin" />
 
     <Button
         android:id="@+id/bt_signin"
@@ -87,6 +103,16 @@
         app:layout_constraintBottom_toTopOf="@+id/bt_signup"
         app:layout_constraintEnd_toEndOf="@+id/bt_signup"
         app:layout_constraintStart_toStartOf="@+id/bt_signup" />
+
+    <ProgressBar
+        android:id="@+id/signup_progress_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintTop_toTopOf="@+id/bt_signup"
+        app:layout_constraintStart_toStartOf="@id/bt_signup"
+        app:layout_constraintBottom_toBottomOf="@+id/bt_signup"
+        app:layout_constraintEnd_toEndOf="@+id/bt_signup" />
 
     <Button
         android:id="@+id/bt_signup"

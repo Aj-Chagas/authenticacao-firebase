@@ -8,9 +8,13 @@ class FirebaseService(val auth: FirebaseAuth) {
 
     val tag = "firebase"
 
-    fun login(email: String, password: String, onResult: (Boolean) -> Unit) {
+    fun login(email: String, password: String, onResult: (result: Boolean, msg: String) -> Unit) {
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
-            onResult(it.isComplete && it.isSuccessful)
+            if (it.isComplete && it.isSuccessful) {
+                onResult(it.isComplete && it.isSuccessful, "")
+            } else {
+                onResult(false, "${it.exception?.message}")
+            }
         }
     }
 
