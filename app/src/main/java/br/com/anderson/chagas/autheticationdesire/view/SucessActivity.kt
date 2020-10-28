@@ -30,11 +30,11 @@ class SucessActivity : AppCompatActivity() {
             }
 
             override fun onAnimationCancel(animation: Animator) {
-                Log.e("Animation:", "cancel")
+                // Do nothing
             }
 
             override fun onAnimationRepeat(animation: Animator) {
-                Log.e("Animation:", "repeat")
+                // Do nothing
             }
         })
     }
