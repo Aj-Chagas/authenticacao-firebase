@@ -6,6 +6,7 @@ import br.com.anderson.chagas.autheticationdesire.helpers.isEmailValid
 import br.com.anderson.chagas.autheticationdesire.helpers.isPasswordValid
 import br.com.anderson.chagas.autheticationdesire.model.User
 import br.com.anderson.chagas.autheticationdesire.service.FirebaseService
+import com.google.firebase.firestore.FirebaseFirestore
 
 class LoginViewModel(
     private val firebaseService: FirebaseService

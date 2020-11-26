@@ -42,8 +42,8 @@ class SingupActivity : AppCompatActivity() {
         })
 
         viewModel.sucessLogin.observe(this, Observer {
-            val intent = Intent(this, SucessActivity::class.java)
-            intent.putExtra("msg", it)
+            val intent = Intent(this, RegistrationDataActivity::class.java)
+            // intent.putExtra("msg", it)
             startActivity(intent)
             finish()
         })
