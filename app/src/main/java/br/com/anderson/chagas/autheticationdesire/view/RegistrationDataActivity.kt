@@ -8,7 +8,6 @@ import android.widget.Toast
 import androidx.core.widget.doAfterTextChanged
 import br.com.anderson.chagas.autheticationdesire.R
 import br.com.anderson.chagas.autheticationdesire.helpers.setError
-import br.com.anderson.chagas.autheticationdesire.model.Address
 import br.com.anderson.chagas.autheticationdesire.model.RegistrationData
 import br.com.anderson.chagas.autheticationdesire.viewmodel.RegistrationDataViewModel
 import kotlinx.android.synthetic.main.activity_registration_data.*
@@ -55,7 +54,6 @@ class RegistrationDataActivity : AppCompatActivity() {
             email = registration_data_email.editText?.text.toString(),
             phone = registration_data_phone_number.editText?.text.toString(),
             birthDate = registration_data_birth_date.editText?.text.toString(),
-            address = Address(
                 streetName = "",
                 numberHouse = "",
                 complement = "",
@@ -64,7 +62,7 @@ class RegistrationDataActivity : AppCompatActivity() {
                 city = "",
                 latitude = 0.0,
                 longitude = 0.0
-            )
+
         )
 
         val validAllField = viewModel.validRegistrationFields(registrationData)

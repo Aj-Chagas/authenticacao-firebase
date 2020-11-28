@@ -40,13 +40,13 @@ class RegistrationDataViewModel(
 
     fun validAllFields(registrationData: RegistrationData): Boolean {
         return (validRegistrationFields(registrationData) &&
-                isMinCharacter(registrationData.address?.streetName!!, 5) &&
-                isMinCharacter(registrationData.address.numberHouse, 1) &&
-                isMinCharacter(registrationData.address.complement, 5) &&
-                isMinCharacter(registrationData.address.postalCode, 8) &&
-                isMinCharacter(registrationData.address.state, 5) &&
-                isMinCharacter(registrationData.address.city, 5) &&
-                isMinCharacter(registrationData.address.latitude.toString(), 1) &&
-                isMinCharacter(registrationData.address.longitude.toString(), 1))
+                isMinCharacter(registrationData.streetName!!, 5) &&
+                isMinCharacter(registrationData.numberHouse, 1) &&
+                isMinCharacter(registrationData.complement, 5) &&
+                isMinCharacter(registrationData.postalCode, 8) &&
+                isMinCharacter(registrationData.state, 5) &&
+                isMinCharacter(registrationData.city, 5) &&
+                isMinCharacter(registrationData.latitude.toString(), 1) &&
+                isMinCharacter(registrationData.longitude.toString(), 1))
     }
 }

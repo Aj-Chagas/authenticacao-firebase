@@ -81,14 +81,14 @@ class AddressActivity : AppCompatActivity() {
 
     fun sendRegistrationData(view: View) {
         registrationData?.let {registrationData ->
-            registrationData.address?.streetName = address_street_name.editText?.text.toString()
-            registrationData.address?.numberHouse = address_street_number.editText?.text.toString()
-            registrationData.address?.complement = address_complement.editText?.text.toString()
-            registrationData.address?.postalCode = address_postal_address.editText?.text.toString()
-            registrationData.address?.state = address_state.editText?.text.toString()
-            registrationData.address?.city = address_city.editText?.text.toString()
-            registrationData.address?.latitude = address_latitude.editText?.text.toString().toDouble()
-            registrationData.address?.longitude = address_longitude.editText?.text.toString().toDouble()
+            registrationData.streetName = address_street_name.editText?.text.toString()
+            registrationData.numberHouse = address_street_number.editText?.text.toString()
+            registrationData.complement = address_complement.editText?.text.toString()
+            registrationData.postalCode = address_postal_address.editText?.text.toString()
+            registrationData.state = address_state.editText?.text.toString()
+            registrationData.city = address_city.editText?.text.toString()
+            registrationData.latitude = address_latitude.editText?.text.toString().toDouble()
+            registrationData.longitude = address_longitude.editText?.text.toString().toDouble()
 
             val validAllFields = viewModel.validAllFields(registrationData)
 

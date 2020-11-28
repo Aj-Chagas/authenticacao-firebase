@@ -8,10 +8,6 @@ class RegistrationData(
     val email: String,
     val phone: String,
     val birthDate: String,
-    val address: Address?
-): Serializable
-
-class Address(
     var streetName: String,
     var numberHouse: String,
     var complement: String,
