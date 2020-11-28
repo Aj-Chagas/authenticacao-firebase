@@ -59,6 +59,7 @@
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:lines="1"
+            android:text="anderson.reis92@gmail.com"
             android:hint="email" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -79,6 +80,7 @@
             android:layout_height="wrap_content"
             android:inputType="numberPassword"
             android:lines="1"
+            android:text="123456"
             android:hint="senha" />
     </com.google.android.material.textfield.TextInputLayout>
 

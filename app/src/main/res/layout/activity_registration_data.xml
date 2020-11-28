@@ -94,8 +94,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:hint="Telefone" />
+                android:inputType="number"
+                android:hint="Telefone com DDD" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -110,7 +110,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
+                android:inputType="date"
                 android:hint="Data de aniversário" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -121,6 +121,7 @@
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_margin="16dp"
+            android:onClick="nextButtonOnClick"
             android:background="@drawable/btn_purple"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

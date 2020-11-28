@@ -7,9 +7,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name = "NoActionBar" parent = "Theme.AppCompat.Light.NoActionBar">
-        <item name = "android:windowActionBar">false</item>
-        <item name = "android:windowNoTitle">true</item>
+    <style name = "ActionBar" parent = "Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="CustomToolbar" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">
+        <item name="colorOnPrimary">@color/colorPrimary</item>
     </style>
 
 </resources>

@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.activity_singup.*
 import org.koin.android.viewmodel.ext.android.viewModel
 import androidx.core.widget.doAfterTextChanged
 import br.com.anderson.chagas.autheticationdesire.helpers.invisible
+import br.com.anderson.chagas.autheticationdesire.helpers.setError
 import br.com.anderson.chagas.autheticationdesire.helpers.visible
 
 class SingupActivity : AppCompatActivity() {
@@ -71,17 +72,6 @@ class SingupActivity : AppCompatActivity() {
             val user = User(email, password)
             viewModel.singup(user)
             bt_signup.invisible()
-        }
-    }
-
-    private fun setError(
-        isError: Boolean,
-        textInputLayout: TextInputLayout,
-        msg: String?
-    ) {
-        when (isError) {
-            true -> textInputLayout.error = msg
-            false -> textInputLayout.error = null
         }
     }
 

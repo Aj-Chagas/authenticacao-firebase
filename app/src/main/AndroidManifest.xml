@@ -10,7 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.RegistrationDataActivity"></activity>
+        <activity android:name=".view.AddressActivity"
+            android:theme="@style/ActionBar"></activity>
+        <activity android:name=".view.RegistrationDataActivity" />
         <activity android:name=".view.SucessActivity" />
         <activity android:name=".view.SingupActivity">
             <intent-filter>
