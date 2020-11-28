@@ -31,21 +31,21 @@ class RegistrationDataViewModel(
     }
 
     fun validRegistrationFields(registrationData: RegistrationData): Boolean {
-        return (isMinCharacter(registrationData.firstName, 5) &&
-                isMinCharacter(registrationData.lastName, 5) &&
-                isMinCharacter(registrationData.birthDate, 5) &&
-                isMinCharacterToPhone(registrationData.phone) &&
+        return (isMinCharacter(registrationData.nome, 5) &&
+                isMinCharacter(registrationData.sobrenome, 5) &&
+                isMinCharacter(registrationData.dataAniversario, 5) &&
+                isMinCharacterToPhone(registrationData.telefone) &&
                 isEmailValid(registrationData.email))
     }
 
     fun validAllFields(registrationData: RegistrationData): Boolean {
         return (validRegistrationFields(registrationData) &&
-                isMinCharacter(registrationData.streetName!!, 5) &&
-                isMinCharacter(registrationData.numberHouse, 1) &&
-                isMinCharacter(registrationData.complement, 5) &&
-                isMinCharacter(registrationData.postalCode, 8) &&
-                isMinCharacter(registrationData.state, 5) &&
-                isMinCharacter(registrationData.city, 5) &&
+                isMinCharacter(registrationData.rua!!, 5) &&
+                isMinCharacter(registrationData.numero, 1) &&
+                isMinCharacter(registrationData.complemento, 5) &&
+                isMinCharacter(registrationData.cep, 8) &&
+                isMinCharacter(registrationData.estado, 5) &&
+                isMinCharacter(registrationData.cidade, 5) &&
                 isMinCharacter(registrationData.latitude.toString(), 1) &&
                 isMinCharacter(registrationData.longitude.toString(), 1))
     }

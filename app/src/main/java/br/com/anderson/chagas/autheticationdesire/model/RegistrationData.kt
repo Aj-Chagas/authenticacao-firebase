@@ -1,19 +1,22 @@
 package br.com.anderson.chagas.autheticationdesire.model
 
+import com.google.firebase.firestore.GeoPoint
 import java.io.Serializable
 
 class RegistrationData(
-    val firstName: String,
-    val lastName: String,
+    val nome: String,
+    val sobrenome: String,
     val email: String,
-    val phone: String,
-    val birthDate: String,
-    var streetName: String,
-    var numberHouse: String,
-    var complement: String,
-    var postalCode: String,
-    var state: String,
-    var city: String,
+    val telefone: String,
+    val dataAniversario: String,
+    var rua: String,
+    var numero: String,
+    var complemento: String,
+    var cep: String,
+    var estado: String,
+    var cidade: String,
     var latitude: Double,
     var longitude: Double
-): Serializable
+): Serializable{
+
+}

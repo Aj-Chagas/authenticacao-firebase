@@ -10,8 +10,6 @@ import br.com.anderson.chagas.autheticationdesire.helpers.setError
 import br.com.anderson.chagas.autheticationdesire.model.RegistrationData
 import br.com.anderson.chagas.autheticationdesire.viewmodel.RegistrationDataViewModel
 import kotlinx.android.synthetic.main.activity_address.*
-import kotlinx.android.synthetic.main.activity_registration_data.*
-import kotlinx.android.synthetic.main.activity_singup.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class AddressActivity : AppCompatActivity() {
@@ -81,12 +79,12 @@ class AddressActivity : AppCompatActivity() {
 
     fun sendRegistrationData(view: View) {
         registrationData?.let {registrationData ->
-            registrationData.streetName = address_street_name.editText?.text.toString()
-            registrationData.numberHouse = address_street_number.editText?.text.toString()
-            registrationData.complement = address_complement.editText?.text.toString()
-            registrationData.postalCode = address_postal_address.editText?.text.toString()
-            registrationData.state = address_state.editText?.text.toString()
-            registrationData.city = address_city.editText?.text.toString()
+            registrationData.rua = address_street_name.editText?.text.toString()
+            registrationData.numero = address_street_number.editText?.text.toString()
+            registrationData.complemento = address_complement.editText?.text.toString()
+            registrationData.cep = address_postal_address.editText?.text.toString()
+            registrationData.estado = address_state.editText?.text.toString()
+            registrationData.cidade = address_city.editText?.text.toString()
             registrationData.latitude = address_latitude.editText?.text.toString().toDouble()
             registrationData.longitude = address_longitude.editText?.text.toString().toDouble()
 

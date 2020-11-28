@@ -49,17 +49,17 @@ class RegistrationDataActivity : AppCompatActivity() {
 
     fun nextButtonOnClick(view: View) {
         val registrationData = RegistrationData(
-            firstName = registration_data_first_name.editText?.text.toString(),
-            lastName = registration_data_last_name.editText?.text.toString(),
+            nome = registration_data_first_name.editText?.text.toString(),
+            sobrenome = registration_data_last_name.editText?.text.toString(),
             email = registration_data_email.editText?.text.toString(),
-            phone = registration_data_phone_number.editText?.text.toString(),
-            birthDate = registration_data_birth_date.editText?.text.toString(),
-                streetName = "",
-                numberHouse = "",
-                complement = "",
-                postalCode = "",
-                state = "",
-                city = "",
+            telefone = registration_data_phone_number.editText?.text.toString(),
+            dataAniversario = registration_data_birth_date.editText?.text.toString(),
+                rua = "",
+                numero = "",
+                complemento = "",
+                cep = "",
+                estado = "",
+                cidade = "",
                 latitude = 0.0,
                 longitude = 0.0
 

@@ -12,18 +12,18 @@ class RegistrationDataRepository(
     fun saveInFirebase(registrationData: RegistrationData) {
 
         val registration = hashMapOf(
-            "cep" to registrationData.postalCode,
-            "complemento" to registrationData.complement,
-            "cidade" to registrationData.city,
-            "data_aniversario" to registrationData.birthDate,
+            "cep" to registrationData.cep,
+            "complemento" to registrationData.complemento,
+            "cidade" to registrationData.cidade,
+            "dataAniversario" to registrationData.dataAniversario,
             "email" to registrationData.email,
-            "estado" to registrationData.state,
-            "lat-lon" to GeoPoint(registrationData.latitude!!, registrationData.longitude),
-            "nome" to registrationData.firstName,
-            "numero" to registrationData.numberHouse,
-            "rua" to registrationData.streetName,
-            "sobrenome" to registrationData.lastName,
-            "telefone" to registrationData.phone
+            "estado" to registrationData.estado,
+            "coordenadas" to GeoPoint(registrationData.latitude!!, registrationData.longitude),
+            "nome" to registrationData.nome,
+            "numero" to registrationData.numero,
+            "rua" to registrationData.rua,
+            "sobrenome" to registrationData.sobrenome,
+            "telefone" to registrationData.telefone
 
         )
 
