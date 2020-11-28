@@ -46,8 +46,6 @@ class RegistrationDataActivity : AppCompatActivity() {
                 setError(false, registration_data_phone_number, null)
             }
         }
-
-
     }
 
     fun nextButtonOnClick(view: View) {

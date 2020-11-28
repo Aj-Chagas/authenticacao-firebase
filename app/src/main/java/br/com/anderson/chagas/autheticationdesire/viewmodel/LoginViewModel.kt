@@ -4,12 +4,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import br.com.anderson.chagas.autheticationdesire.helpers.isEmailValid
 import br.com.anderson.chagas.autheticationdesire.helpers.isPasswordValid
+import br.com.anderson.chagas.autheticationdesire.model.Session
 import br.com.anderson.chagas.autheticationdesire.model.User
+import br.com.anderson.chagas.autheticationdesire.repository.RegistrationDataRepository
 import br.com.anderson.chagas.autheticationdesire.service.FirebaseService
 import com.google.firebase.firestore.FirebaseFirestore
 
 class LoginViewModel(
-    private val firebaseService: FirebaseService
+    private val firebaseService: FirebaseService,
+    private val repository: RegistrationDataRepository
 ): ViewModel() {
 
     val loginliveData =  MutableLiveData<String>()
@@ -48,11 +51,16 @@ class LoginViewModel(
     private fun signinFirebase(user: User) {
         firebaseService.login(user.email, user.password) { result: Boolean, message: String ->
             if (result) {
+                Session.email = user.email
                 sucessLogin.postValue("Login efetuado com sucesso")
             } else {
                 loginliveData.postValue("$message")
             }
         }
+    }
+
+    fun getRegistrationUser(){
+        repository.getRegistrationData()
     }
 
     fun validEmail(email: String) : Boolean {
