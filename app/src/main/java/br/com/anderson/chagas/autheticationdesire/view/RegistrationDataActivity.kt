@@ -64,8 +64,8 @@ class RegistrationDataActivity : AppCompatActivity() {
                 postalCode = "",
                 state = "",
                 city = "",
-                latitude = "",
-                longitude = ""
+                latitude = 0.0,
+                longitude = 0.0
             )
         )
 

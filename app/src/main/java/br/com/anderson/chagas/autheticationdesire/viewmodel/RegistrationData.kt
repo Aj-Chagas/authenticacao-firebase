@@ -11,12 +11,8 @@ class RegistrationDataViewModel(
     private val repository: RegistrationDataRepository
 ) : ViewModel(){
 
-    fun salveInFirebase() {
-        val user = hashMapOf(
-            "nome" to "Alan"
-        )
-
-        repository.saveInFirebase(user)
+    fun salveInFirebase(registrationData: RegistrationData) {
+        repository.saveInFirebase(registrationData)
     }
 
     fun minimumCharacterValidation(text: String, min: Int): Boolean {
@@ -50,7 +46,7 @@ class RegistrationDataViewModel(
                 isMinCharacter(registrationData.address.postalCode, 8) &&
                 isMinCharacter(registrationData.address.state, 5) &&
                 isMinCharacter(registrationData.address.city, 5) &&
-                isMinCharacter(registrationData.address.latitude, 1) &&
-                isMinCharacter(registrationData.address.longitude, 1))
+                isMinCharacter(registrationData.address.latitude.toString(), 1) &&
+                isMinCharacter(registrationData.address.longitude.toString(), 1))
     }
 }

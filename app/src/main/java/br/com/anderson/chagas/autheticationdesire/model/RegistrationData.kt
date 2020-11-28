@@ -18,6 +18,6 @@ class Address(
     var postalCode: String,
     var state: String,
     var city: String,
-    var latitude: String,
-    var longitude: String
+    var latitude: Double,
+    var longitude: Double
 ): Serializable

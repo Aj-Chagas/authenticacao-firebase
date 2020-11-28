@@ -87,13 +87,14 @@ class AddressActivity : AppCompatActivity() {
             registrationData.address?.postalCode = address_postal_address.editText?.text.toString()
             registrationData.address?.state = address_state.editText?.text.toString()
             registrationData.address?.city = address_city.editText?.text.toString()
-            registrationData.address?.latitude = address_latitude.editText?.text.toString()
-            registrationData.address?.longitude = address_longitude.editText?.text.toString()
+            registrationData.address?.latitude = address_latitude.editText?.text.toString().toDouble()
+            registrationData.address?.longitude = address_longitude.editText?.text.toString().toDouble()
 
             val validAllFields = viewModel.validAllFields(registrationData)
 
             if (validAllFields) {
                 Toast.makeText(this, "pronto para salvar porra", Toast.LENGTH_LONG).show()
+                viewModel.salveInFirebase(registrationData)
             } else {
                 Toast.makeText(this, "preencha tudo caraolhooo", Toast.LENGTH_LONG).show()
             }
