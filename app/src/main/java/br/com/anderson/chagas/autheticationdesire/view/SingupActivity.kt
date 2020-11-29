@@ -48,7 +48,7 @@ class SingupActivity : AppCompatActivity() {
         })
 
         viewModel.remoteRegistration.observe(this, Observer { result ->
-            if (result != null) {
+            if (result != null && result.status == true) {
                 val intent = Intent(this, HomeActivity::class.java)
                 // intent.putExtra("msg", it)
                 val registrationData = RegistrationData(

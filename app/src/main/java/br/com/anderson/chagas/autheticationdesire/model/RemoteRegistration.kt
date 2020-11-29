@@ -15,9 +15,11 @@ data class RemoteRegistration(
     var cep: String?,
     var estado: String?,
     var cidade: String?,
-    var coordenadas: GeoPoint?
+    var coordenadas: GeoPoint?,
+    val status: Boolean? = true
 ): Serializable {
     constructor() : this("", "", "", "",
     "", "", "", "", "", "",
-        "", GeoPoint(0.0,0.0))
+        "", GeoPoint(0.0,0.0), true
+    )
 }

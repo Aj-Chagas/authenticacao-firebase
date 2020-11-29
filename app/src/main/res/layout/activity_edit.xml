@@ -13,15 +13,38 @@
         tools:context=".view.RegistrationDataActivity">
 
         <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Editar"
+            android:textColor="@android:color/black"
+            android:textSize="31sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            android:background="@color/colorRoxo"
+            app:layout_constraintEnd_toEndOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@id/textView" />
+
+        <TextView
             android:id="@+id/registration_title_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dados pessoais"
             android:textColor="@android:color/black"
-            android:textSize="32sp"
+            android:textSize="20sp"
+            android:fontFamily="@font/roboto_bold"
             android:layout_margin="16dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/view" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/registration_first_name"
@@ -100,8 +123,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Endereço"
+            android:textSize="20sp"
+            android:fontFamily="@font/roboto_bold"
             android:textColor="@android:color/black"
-            android:textSize="32sp"
             app:layout_constraintStart_toStartOf="@+id/registration_birth_date"
             app:layout_constraintTop_toBottomOf="@+id/registration_birth_date" />
 
@@ -122,8 +146,9 @@
 
         <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/registratio_number"
-        android:layout_width="80dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/registratio_street"
         app:layout_constraintTop_toBottomOf="@id/registratio_street"
         app:layout_constraintStart_toStartOf="@id/registratio_street">
 
@@ -137,9 +162,9 @@
         android:id="@+id/registratio_complemento"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/registratio_street"
-        app:layout_constraintStart_toEndOf="@+id/registratio_number"
-        app:layout_constraintTop_toBottomOf="@+id/registratio_street">
+        app:layout_constraintEnd_toEndOf="@+id/registratio_number"
+        app:layout_constraintStart_toStartOf="@+id/registratio_number"
+        app:layout_constraintTop_toBottomOf="@+id/registratio_number">
 
     <com.google.android.material.textfield.TextInputEditText
         android:layout_width="match_parent"
@@ -152,7 +177,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="@+id/registratio_complemento"
-            app:layout_constraintStart_toStartOf="@+id/registratio_number"
+            app:layout_constraintStart_toStartOf="@+id/registratio_complemento"
             app:layout_constraintTop_toBottomOf="@+id/registratio_complemento">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -193,14 +218,14 @@
             android:id="@+id/registratio_latitude"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toStartOf="@+id/registratio_longitude"
+            app:layout_constraintEnd_toEndOf="@+id/registratio_cidade"
             app:layout_constraintStart_toStartOf="@+id/registratio_cidade"
             app:layout_constraintTop_toBottomOf="@+id/registratio_cidade">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="number"
                 android:hint="latitude" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -208,29 +233,37 @@
             android:id="@+id/registratio_longitude"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="@+id/registratio_cidade"
-            app:layout_constraintStart_toEndOf="@+id/registratio_latitude"
-            app:layout_constraintTop_toBottomOf="@+id/registratio_cidade">
+            app:layout_constraintEnd_toEndOf="@+id/registratio_latitude"
+            app:layout_constraintStart_toStartOf="@+id/registratio_latitude"
+            app:layout_constraintTop_toBottomOf="@+id/registratio_latitude">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="number"
                 android:hint="longitude" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/registratio_salvar"
             android:layout_width="match_parent"
+            android:text="salvar"
+            android:textColor="@android:color/white"
+            android:onClick="onClickSave"
+            android:background="@drawable/btn_purple"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/registratio_latitude" />
+            app:layout_constraintTop_toBottomOf="@id/registratio_longitude" />
 
         <Button
             android:id="@+id/registratio_deletar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="apagar dados"
+            android:onClick="onClickDelete"
+            android:background="@drawable/btn_gray"
             android:layout_margin="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -1,5 +1,6 @@
 package br.com.anderson.chagas.autheticationdesire.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
@@ -12,11 +13,14 @@ import kotlinx.android.synthetic.main.item_data.view.*
 import kotlinx.android.synthetic.main.item_title.view.*
 
 class HomeActivity : AppCompatActivity() {
+
+    private var registrationData: RegistrationData? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        val registrationData = intent.getSerializableExtra("EXTRA_REGISTRATION") as RegistrationData
+        registrationData = intent.getSerializableExtra("EXTRA_REGISTRATION") as RegistrationData
 
         item_title_1.item_title_title.text = "Dados pessoais"
 
@@ -60,4 +64,9 @@ class HomeActivity : AppCompatActivity() {
 
     }
 
+    fun onClickEdit(view: View) {
+        val intent = Intent(this, EditActivity::class.java)
+        intent.putExtra("EXTRA_REGISTRATION", registrationData)
+        startActivity(intent)
+    }
 }

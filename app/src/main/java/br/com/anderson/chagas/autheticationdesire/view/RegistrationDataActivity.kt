@@ -45,6 +45,12 @@ class RegistrationDataActivity : AppCompatActivity() {
                 setError(false, registration_data_phone_number, null)
             }
         }
+
+        registration_data_birth_date.editText?.doAfterTextChanged { text ->
+            val error = viewModel.minimumCharacterValidation(text.toString(), 10)
+            if (error) setError(true, registration_data_birth_date, "data de aniversario invalida. ex: dd/mm/aaaa") else setError(false, registration_data_birth_date, null)
+        }
+
     }
 
     fun nextButtonOnClick(view: View) {
@@ -72,7 +78,7 @@ class RegistrationDataActivity : AppCompatActivity() {
             intent.putExtra("EXTRA_REGISTRATION", registrationData);
             startActivity(intent)
         } else {
-            Toast.makeText(this, "preencha tudo porra", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "preencha todos os campos", Toast.LENGTH_LONG).show()
         }
     }
 }

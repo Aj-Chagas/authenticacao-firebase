@@ -10,7 +10,7 @@ import com.google.firebase.firestore.GeoPoint
 class RegistrationDataRepository(
     private val db: FirebaseFirestore
 ) {
-    fun saveInFirebase(registrationData: RegistrationData) {
+    fun saveInFirebase(registrationData: RegistrationData, onResult: (result: Boolean) -> Unit) {
 
         val registration = hashMapOf(
             "cep" to registrationData.cep,
@@ -19,21 +19,23 @@ class RegistrationDataRepository(
             "dataAniversario" to registrationData.dataAniversario,
             "email" to registrationData.email,
             "estado" to registrationData.estado,
-            "coordenadas" to GeoPoint(registrationData.latitude!!, registrationData.longitude),
+            "coordenadas" to GeoPoint(registrationData.latitude!!, registrationData.longitude!!),
             "nome" to registrationData.nome,
             "numero" to registrationData.numero,
             "rua" to registrationData.rua,
             "sobrenome" to registrationData.sobrenome,
-            "telefone" to registrationData.telefone
-
+            "telefone" to registrationData.telefone,
+            "status" to true
         )
 
         db.collection("cadastro").document(Session.email!!)
             .set(registration)
-            .addOnSuccessListener { _ ->
+            .addOnSuccessListener {
+                onResult(true)
                 Log.d("firebase", "DocumentSnapshot successfully written!")
             }
             .addOnFailureListener { e ->
+                onResult(false)
                 Log.w("firebase", "Error adding document", e)
             }
 
@@ -56,5 +58,16 @@ class RegistrationDataRepository(
                 Log.d("firebase", "get failed with ", exception)
             }
 
+    }
+
+    fun disableAccount(onResult: (result: Boolean) -> Unit) {
+        val docRef = db.collection("cadastro").document(Session.email!!)
+        docRef.update("status", false)
+            .addOnSuccessListener {
+                onResult(true)
+                Log.d("firebase", "DocumentSnapshot successfully updated!") }
+            .addOnFailureListener {
+                    onResult(false)
+                Log.w("firebase", "Error updating document", it) }
     }
 }
