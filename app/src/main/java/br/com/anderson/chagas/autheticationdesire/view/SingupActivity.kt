@@ -16,6 +16,7 @@ import androidx.core.widget.doAfterTextChanged
 import br.com.anderson.chagas.autheticationdesire.helpers.invisible
 import br.com.anderson.chagas.autheticationdesire.helpers.setError
 import br.com.anderson.chagas.autheticationdesire.helpers.visible
+import br.com.anderson.chagas.autheticationdesire.model.RegistrationData
 
 class SingupActivity : AppCompatActivity() {
 
@@ -43,15 +44,37 @@ class SingupActivity : AppCompatActivity() {
         })
 
         viewModel.sucessLogin.observe(this, Observer {
-
-
             viewModel.getRegistrationUser()
+        })
 
-
-            val intent = Intent(this, RegistrationDataActivity::class.java)
-            // intent.putExtra("msg", it)
-            startActivity(intent)
-            finish()
+        viewModel.remoteRegistration.observe(this, Observer { result ->
+            if (result != null) {
+                val intent = Intent(this, HomeActivity::class.java)
+                // intent.putExtra("msg", it)
+                val registrationData = RegistrationData(
+                    result.nome!!,
+                    result.sobrenome!!,
+                    result.email!!,
+                    result.telefone!!,
+                    result.dataAniversario!!,
+                    result.rua!!,
+                    result.numero!!,
+                    result.complemento!!,
+                    result.cep!!,
+                    result.estado!!,
+                    result.cidade!!,
+                    result.coordenadas!!.latitude!!,
+                    result.coordenadas!!.longitude!!
+                )
+                intent.putExtra("EXTRA_REGISTRATION", registrationData)
+                startActivity(intent)
+                finish()
+            } else {
+                val intent = Intent(this, RegistrationDataActivity::class.java)
+                // intent.putExtra("msg", it)
+                startActivity(intent)
+                finish()
+            }
         })
 
         btnSignupClickListener()

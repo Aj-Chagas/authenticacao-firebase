@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import br.com.anderson.chagas.autheticationdesire.helpers.isEmailValid
 import br.com.anderson.chagas.autheticationdesire.helpers.isPasswordValid
+import br.com.anderson.chagas.autheticationdesire.model.RemoteRegistration
 import br.com.anderson.chagas.autheticationdesire.model.Session
 import br.com.anderson.chagas.autheticationdesire.model.User
 import br.com.anderson.chagas.autheticationdesire.repository.RegistrationDataRepository
@@ -17,6 +18,7 @@ class LoginViewModel(
 
     val loginliveData =  MutableLiveData<String>()
     val sucessLogin = MutableLiveData<String>()
+    val remoteRegistration = MutableLiveData<RemoteRegistration?>()
 
     fun singup(user: User) {
         if (validFields(user)) {
@@ -59,8 +61,10 @@ class LoginViewModel(
         }
     }
 
-    fun getRegistrationUser(){
-        repository.getRegistrationData()
+    fun getRegistrationUser() {
+        repository.getRegistrationData() { result ->
+            remoteRegistration.postValue(result)
+        }
     }
 
     fun validEmail(email: String) : Boolean {

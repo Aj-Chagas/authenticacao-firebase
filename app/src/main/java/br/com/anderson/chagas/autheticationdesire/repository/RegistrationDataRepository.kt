@@ -2,6 +2,7 @@ package br.com.anderson.chagas.autheticationdesire.repository
 
 import android.util.Log
 import br.com.anderson.chagas.autheticationdesire.model.RegistrationData
+import br.com.anderson.chagas.autheticationdesire.model.RemoteRegistration
 import br.com.anderson.chagas.autheticationdesire.model.Session
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.GeoPoint
@@ -38,17 +39,20 @@ class RegistrationDataRepository(
 
     }
 
-    fun getRegistrationData() {
+    fun getRegistrationData( onResult: (result: RemoteRegistration?) -> Unit) {
         val docRef = db.collection("cadastro").document(Session.email!!)
         docRef.get()
             .addOnSuccessListener { document ->
                 if (document != null) {
+                    onResult(document.toObject(RemoteRegistration::class.java))
                     Log.d("firebase", "DocumentSnapshot data: ${document.data}")
                 } else {
+                    onResult(null)
                     Log.d("firebase", "No such document")
                 }
             }
             .addOnFailureListener { exception ->
+                onResult(null)
                 Log.d("firebase", "get failed with ", exception)
             }
 
