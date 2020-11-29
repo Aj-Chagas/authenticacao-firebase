@@ -69,4 +69,8 @@ class HomeActivity : AppCompatActivity() {
         intent.putExtra("EXTRA_REGISTRATION", registrationData)
         startActivity(intent)
     }
+
+    override fun onBackPressed() {
+        // do nothing
+    }
 }

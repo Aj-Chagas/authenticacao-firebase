@@ -22,6 +22,7 @@ class LoginViewModel(
 
     fun singup(user: User) {
         if (validFields(user)) {
+            Session.email = user.email
             registerInFirebase(user)
         } else {
             loginliveData.postValue("preencha todos os campos corretamente")

@@ -23,13 +23,13 @@ class RegistrationDataActivity : AppCompatActivity() {
 
         // viewModel.salveInFirebase()
         registration_data_first_name.editText?.doAfterTextChanged { text ->
-            val error = viewModel.minimumCharacterValidation(text.toString(), 5)
-            if (error) setError(true, registration_data_first_name, "mínimo 5 caracteres") else setError(false, registration_data_first_name, null)
+            val error = viewModel.minimumCharacterValidation(text.toString(), 3)
+            if (error) setError(true, registration_data_first_name, "mínimo 3 caracteres") else setError(false, registration_data_first_name, null)
         }
 
         registration_data_last_name.editText?.doAfterTextChanged { text ->
-            val error = viewModel.minimumCharacterValidation(text.toString(), 5)
-            if (error) setError(true, registration_data_last_name, "mínimo 5 caracteres") else setError(false, registration_data_last_name, null)
+            val error = viewModel.minimumCharacterValidation(text.toString(), 3)
+            if (error) setError(true, registration_data_last_name, "mínimo 3 caracteres") else setError(false, registration_data_last_name, null)
         }
 
         registration_data_email.editText?.doAfterTextChanged { text ->

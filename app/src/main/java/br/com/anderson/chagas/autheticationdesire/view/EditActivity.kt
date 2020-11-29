@@ -29,13 +29,13 @@ class EditActivity : AppCompatActivity() {
         bindView(registrationData)
 
         registration_first_name.editText?.doAfterTextChanged { text ->
-            val error = viewModel.minimumCharacterValidation(text.toString(), 5)
-            if (error) setError(true, registration_first_name, "mínimo 5 caracteres") else setError(false, registration_first_name, null)
+            val error = viewModel.minimumCharacterValidation(text.toString(), 3)
+            if (error) setError(true, registration_first_name, "mínimo 3 caracteres") else setError(false, registration_first_name, null)
         }
 
         registration_last_name.editText?.doAfterTextChanged { text ->
-            val error = viewModel.minimumCharacterValidation(text.toString(), 5)
-            if (error) setError(true, registration_last_name, "mínimo 5 caracteres") else setError(false, registration_last_name, null)
+            val error = viewModel.minimumCharacterValidation(text.toString(), 3)
+            if (error) setError(true, registration_last_name, "mínimo 3 caracteres") else setError(false, registration_last_name, null)
         }
 
         registration_email.editText?.doAfterTextChanged { text ->
@@ -56,8 +56,8 @@ class EditActivity : AppCompatActivity() {
 
 
         registratio_street.editText?.doAfterTextChanged { text ->
-            val error = viewModel.minimumCharacterValidation(text.toString(), 5)
-            if (error) setError(true, registratio_street, "mínimo 5 caracteres")
+            val error = viewModel.minimumCharacterValidation(text.toString(), 3)
+            if (error) setError(true, registratio_street, "mínimo 3 caracteres")
             else setError(false, registratio_street, null)
         }
 
@@ -68,8 +68,8 @@ class EditActivity : AppCompatActivity() {
         }
 
         registratio_complemento.editText?.doAfterTextChanged { text ->
-            val error = viewModel.minimumCharacterValidation(text.toString(), 5)
-            if (error) setError(true, registratio_complemento, "mínimo 5 caracteres")
+            val error = viewModel.minimumCharacterValidation(text.toString(), 2)
+            if (error) setError(true, registratio_complemento, "mínimo 2 caracteres")
             else setError(false, registratio_complemento, null)
         }
 
@@ -80,14 +80,14 @@ class EditActivity : AppCompatActivity() {
         }
 
         registratio_estado.editText?.doAfterTextChanged { text ->
-            val error = viewModel.minimumCharacterValidation(text.toString(), 5)
-            if (error) setError(true, registratio_estado, "mínimo 5 caracteres")
+            val error = viewModel.minimumCharacterValidation(text.toString(), 2)
+            if (error) setError(true, registratio_estado, "mínimo 2 caracteres")
             else setError(false, registratio_estado, null)
         }
 
         registratio_cidade.editText?.doAfterTextChanged { text ->
-            val error = viewModel.minimumCharacterValidation(text.toString(), 5)
-            if (error) setError(true, registratio_cidade, "mínimo 5 caracteres")
+            val error = viewModel.minimumCharacterValidation(text.toString(), 2)
+            if (error) setError(true, registratio_cidade, "mínimo 2 caracteres")
             else setError(false, registratio_cidade, null)
         }
 
@@ -175,6 +175,7 @@ class EditActivity : AppCompatActivity() {
                             )
                             intent.putExtra("EXTRA_REGISTRATION", registrationData)
                             startActivity(intent)
+                            finish()
                         } else {
                             Toast.makeText(this, "ocorreu um erro", Toast.LENGTH_LONG).show()
                         }

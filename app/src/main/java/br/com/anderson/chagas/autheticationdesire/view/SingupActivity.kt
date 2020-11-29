@@ -44,7 +44,13 @@ class SingupActivity : AppCompatActivity() {
         })
 
         viewModel.sucessLogin.observe(this, Observer {
-            viewModel.getRegistrationUser()
+            if (it == "cadastro efetuado com sucesso") {
+                Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+                bt_signup.visible()
+            } else {
+                viewModel.getRegistrationUser()
+            }
+
         })
 
         viewModel.remoteRegistration.observe(this, Observer { result ->

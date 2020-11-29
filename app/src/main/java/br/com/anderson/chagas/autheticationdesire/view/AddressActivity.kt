@@ -29,8 +29,8 @@ class AddressActivity : AppCompatActivity() {
         registrationData = intent.getSerializableExtra("EXTRA_REGISTRATION") as? RegistrationData
 
         address_street_name.editText?.doAfterTextChanged { text ->
-            val error = viewModel.minimumCharacterValidation(text.toString(), 5)
-            if (error) setError(true, address_street_name, "mínimo 5 caracteres")
+            val error = viewModel.minimumCharacterValidation(text.toString(), 3)
+            if (error) setError(true, address_street_name, "mínimo 3 caracteres")
             else setError(false, address_street_name, null)
         }
 
@@ -41,8 +41,8 @@ class AddressActivity : AppCompatActivity() {
         }
 
         address_complement.editText?.doAfterTextChanged { text ->
-            val error = viewModel.minimumCharacterValidation(text.toString(), 5)
-            if (error) setError(true, address_complement, "mínimo 5 caracteres")
+            val error = viewModel.minimumCharacterValidation(text.toString(), 2)
+            if (error) setError(true, address_complement, "mínimo 2 caracteres")
             else setError(false, address_complement, null)
         }
 
@@ -53,14 +53,14 @@ class AddressActivity : AppCompatActivity() {
         }
 
         address_state.editText?.doAfterTextChanged { text ->
-            val error = viewModel.minimumCharacterValidation(text.toString(), 5)
-            if (error) setError(true, address_state, "mínimo 5 caracteres")
+            val error = viewModel.minimumCharacterValidation(text.toString(), 2)
+            if (error) setError(true, address_state, "mínimo 2 caracteres")
             else setError(false, address_state, null)
         }
 
         address_city.editText?.doAfterTextChanged { text ->
-            val error = viewModel.minimumCharacterValidation(text.toString(), 5)
-            if (error) setError(true, address_city, "mínimo 5 caracteres")
+            val error = viewModel.minimumCharacterValidation(text.toString(), 2)
+            if (error) setError(true, address_city, "mínimo 2 caracteres")
             else setError(false, address_city, null)
         }
 
@@ -125,6 +125,7 @@ class AddressActivity : AppCompatActivity() {
                                 )
                                 intent.putExtra("EXTRA_REGISTRATION", registrationData)
                                 startActivity(intent)
+                                finish()
                             } else {
                                 Toast.makeText(this, "ocorreu um erro", Toast.LENGTH_LONG).show()
                             }
